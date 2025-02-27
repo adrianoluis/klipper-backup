@@ -15,6 +15,7 @@ trusted_clients:
 cors_domains:
     *.lan
     *.local
+    *.internal
     *://localhost
     *://localhost:*
     *://my.mainsail.xyz
@@ -24,15 +25,9 @@ cors_domains:
 
 [history]
 
-[spoolman]
-server: http://192.168.0.20:7912
-
 [update_manager]
 channel: dev
 refresh_interval: 168
-
-[file_manager]
-enable_object_processing: True
 
 [update_manager mainsail-config]
 type: git_repo
@@ -47,15 +42,6 @@ channel: stable
 repo: mainsail-crew/mainsail
 path: ~/mainsail
 
-# Sonar update_manager entry
-[update_manager sonar]
-type: git_repo
-path: ~/sonar
-origin: https://github.com/mainsail-crew/sonar.git
-primary_branch: main
-managed_services: sonar
-install_script: tools/install.sh
-
 # Crowsnest update_manager entry
 [update_manager crowsnest]
 type: git_repo
@@ -64,15 +50,12 @@ origin: https://github.com/mainsail-crew/crowsnest.git
 managed_services: crowsnest
 install_script: tools/pkglist.sh
 
-[update_manager mobileraker]
+
+[update_manager led_effect]
 type: git_repo
-path: /home/pi/mobileraker_companion
-origin: https://github.com/Clon1998/mobileraker_companion.git
-primary_branch: main
-managed_services: mobileraker
-env: /home/pi/mobileraker-env/bin/python
-requirements: scripts/mobileraker-requirements.txt
-install_script: scripts/install.sh
+path: ~/klipper-led_effect
+origin: https://github.com/julianschill/klipper-led_effect.git
+is_system_service: False
 
 [update_manager klipper_tmc_autotune]
 type: git_repo
@@ -83,25 +66,3 @@ managed_services: klipper
 primary_branch: main
 install_script: install.sh
 
-[update_manager katapult]
-type: git_repo
-channel: dev
-path: ~/katapult
-origin: https://github.com/Arksine/katapult.git
-is_system_service: False
-managed_services: klipper
-
-[include octoeverywhere-system.cfg]
-
-[update_manager led_effect]
-type: git_repo
-path: ~/klipper-led_effect
-origin: https://github.com/julianschill/klipper-led_effect.git
-is_system_service: False
-
-[update_manager klipper-backup]
-type: git_repo
-primary_branch: main
-path: ~/klipper-backup
-origin: https://github.com/Staubgeborener/klipper-backup.git
-managed_services: moonraker
