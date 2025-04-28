@@ -6,4 +6,4 @@ printer-[0-9]*_[0-9]*.cfg
 mainsail.bak
 *.bkp
 *.csv
-*.zip
+mainsail.zip
