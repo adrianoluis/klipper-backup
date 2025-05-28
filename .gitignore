@@ -3,7 +3,8 @@ secrets.conf
 *.swp
 *.tmp
 printer-[0-9]*_[0-9]*.cfg
+config_backup_git.bak
 mainsail.bak
 *.bkp
 *.csv
-mainsail.zip
+*.zip
